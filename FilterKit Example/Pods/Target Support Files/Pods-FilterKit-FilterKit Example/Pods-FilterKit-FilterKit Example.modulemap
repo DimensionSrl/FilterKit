@@ -1,0 +1,6 @@
+framework module Pods_FilterKit_FilterKit_Example {
+  umbrella header "Pods-FilterKit-FilterKit Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

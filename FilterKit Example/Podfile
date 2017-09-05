@@ -1,0 +1,10 @@
+project 'FilterKit Example'
+use_frameworks!
+
+abstract_target 'FilterKit' do
+  pod 'FilterKit', :path => '..'
+  
+  target 'FilterKit Example' do
+    platform :ios, '8.0'
+  end
+end
