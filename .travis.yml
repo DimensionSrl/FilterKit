@@ -1,0 +1,6 @@
+language: objective-c
+osx_image: xcode8.3
+script: xcodebuild -project FilterKit.xcodeproj -scheme "FilterKit iOS" -destination 'platform=iOS Simulator,OS=10.3,id=3C358901-B375-4F3E-87D9-B7FF56CBEFE5' -enableCodeCoverage YES clean build test
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
