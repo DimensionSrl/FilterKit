@@ -1,5 +1,5 @@
 PODS:
-  - FilterKit (0.9.0)
+  - FilterKit (0.9.1)
 
 DEPENDENCIES:
   - FilterKit (from `..`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  FilterKit: 4603154397ea3ea264b42d559d96943fe07b702b
+  FilterKit: 250522323239898f0a21c6a390fb47cd8a591c17
 
 PODFILE CHECKSUM: baec954e05b2ba68f7138234fe234e08f4af51cd
 

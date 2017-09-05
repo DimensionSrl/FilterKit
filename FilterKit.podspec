@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "FilterKit"
-  s.version               = "0.9.0"
+  s.version               = "0.9.1"
   s.summary               = "Multiple filter DSL"
   s.description           = <<-DESC
   Combine multiple filters to achive custom results.
@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.9"
 
   s.source                = { :git => "https://github.com/dimensionsrl/FilterKit.git", :tag => "v#{s.version}" }
-  s.source_files          = "FilterKit/**/*.{swift}"
+  s.source_files          = "Sources/**/*.{swift}"
   s.requires_arc          = true
 end

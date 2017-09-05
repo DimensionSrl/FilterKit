@@ -8,19 +8,28 @@
 
 import Foundation
 
+#if os(Linux)
+public enum FilterError: Int, Error {
+    case missingFilters
+    case firstElementNotAString
+    case unknownOperation
+    case propertyNameNotAString
+    case noValuesProvidedForProperty
+    case missingComparisonValue
+    case wrongFilterFormat
+    case unrecognizedFlow
+}
+#else
 @objc(FILFilterError)
 public enum FilterError: Int, Error {
     case missingFilters
     case firstElementNotAString
     case unknownOperation
     case propertyNameNotAString
-    // Those are simpler to mantain Objective-C compatibility
-    // case noValuesProvided(forProperty: String)
-    // case missingComparisonValue(forProperty: String)
-    // case wrongFormat(ofFilter: Any)
-    // case unrecognizedFlow(forOperation: FilterOperation)
     case noValuesProvidedForProperty
     case missingComparisonValue
     case wrongFilterFormat
     case unrecognizedFlow
 }
+
+#endif

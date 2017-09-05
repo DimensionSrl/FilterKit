@@ -8,7 +8,6 @@
 
 import Foundation
 
-@objc(FILFilterOperator)
 public enum FilterOperator : Int, RawRepresentable {
     case equal          // = "=="
     case notEqual       // = "!="

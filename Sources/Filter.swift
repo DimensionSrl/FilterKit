@@ -8,24 +8,14 @@
 
 import Foundation
 
-@objc(FILFilter)
-public class Filter : NSObject {
+public class Filter {
     
     fileprivate var properties : [String: Any]
     
-    @objc public var logger : FilterLogLevel = .debug
+    public var logger : FilterLogLevel = .debug
     
-    @objc public init(properties: [String: Any]) {
+    public init(properties: [String: Any]) {
         self.properties = properties
-    }
-    
-    @objc public func compile(filters: [Any]?) throws -> FilterResult {
-        do {
-            let filter = try compile(filters)
-            return FilterResult(filter)
-        } catch let error {
-            throw error
-        }
     }
     
     public func compile(_ filters: [Any]?) throws -> Bool {

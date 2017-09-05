@@ -11,6 +11,50 @@ import XCTest
 
 class FilterKitTests: XCTestCase {
     
+    static var allTests = [
+        ("testAllEqualSingle", testAllEqualSingle),
+        ("testAllEqualSingleDouble", testAllEqualSingleDouble),
+        ("testAllEqualMultiple", testAllEqualMultiple),
+        ("testAllEqualDifferent", testAllEqualDifferent),
+        ("testAllEqualIn", testAllEqualIn),
+        ("testAllEqualInDouble", testAllEqualInDouble),
+        ("testAllEqualNotIn", testAllEqualNotIn),
+        ("testAllEqualHas", testAllEqualHas),
+        ("testAllEqualDoesntHave", testAllEqualDoesntHave),
+        ("testAnyEqualSingle", testAnyEqualSingle),
+        ("testAnyEqualMultiple", testAnyEqualMultiple),
+        ("testNoneEqualSingle", testNoneEqualSingle),
+        ("testNoneDifferentMultiple", testNoneDifferentMultiple),
+        ("testAllMinor", testAllMinor),
+        ("testAllMajor", testAllMajor),
+        ("testAllMinorEqual", testAllMinorEqual),
+        ("testAllMajorEqual", testAllMajorEqual),
+        ("testAllEqualInt", testAllEqualInt),
+        ("testAllEqualDouble", testAllEqualDouble),
+        ("testAllEqualBool", testAllEqualBool),
+        ("testAllNotEqualDouble", testAllNotEqualDouble),
+        ("testAllNotEqualBool", testAllNotEqualBool),
+        ("testAllNotEqualBool", testAllNotEqualBool),
+        ("testAllNotEqualInt", testAllNotEqualInt),
+        ("testAllNotEqualInt", testAllNotEqualInt),
+        ("testAllMajorInt", testAllMajorInt),
+        ("testAllMajorEqualInt", testAllMajorEqualInt),
+        ("testAllMinorInt", testAllMinorInt),
+        ("testAllMinorEqualInt", testAllMinorEqualInt),
+        ("testNoFilters", testNoFilters),
+        ("testThrowNotString", testThrowNotString),
+        ("testThrowUnknownOperation", testThrowUnknownOperation),
+        ("testThrowUnknownFilter", testThrowUnknownFilter),
+        ("testThrowPropertyNotString", testThrowPropertyNotString),
+        ("testThrowInPropertyNotString", testThrowInPropertyNotString),
+        ("testThrowHasPropertyNotString", testThrowHasPropertyNotString),
+        ("testThrowInNoValues", testThrowInNoValues),
+        ("testThrowEqualNoValue", testThrowEqualNoValue),
+        ("testThrowNoFiltersJson", testThrowNoFiltersJson),
+        ("testThrowFirstElementNotAString", testThrowFirstElementNotAString),
+        ("testThrowWrongJsonFormat", testThrowWrongJsonFormat)
+        ]
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -28,6 +72,7 @@ class FilterKitTests: XCTestCase {
             return
         }
         do {
+            Filter(properties: [:]).logger = .debug
             let shouldPass_0 = try Filter(properties: ["foo": "bar", "bar": "span"]).compile(parsed)
             XCTAssert(shouldPass_0, "Foo should be equal to bar")
             let shouldFail_0 = try Filter(properties: ["foo": "fool", "bar": "span"]).compile(parsed)
@@ -179,7 +224,11 @@ class FilterKitTests: XCTestCase {
         }
         do {
             let shouldPass_0 = try Filter(properties: ["foo": 1]).compile(parsed)
-            XCTAssert(shouldPass_0, "Foo should be in 1.0, 2.4 or 3.6")
+            #if !os(Linux)
+                XCTAssert(shouldPass_0, "Foo should be in 1.0, 2.4 or 3.6")
+            #else
+                XCTAssert(shouldPass_0 == false, "Foo should be in 1.0, 2.4 or 3.6 and it's 1 as integer")
+            #endif
             let shouldPass_1 = try Filter(properties: ["foo": 2.4, "bit": "code", "green": "door"]).compile(parsed)
             XCTAssert(shouldPass_1, "Foo should be in 1.0, 2.4 or 3.6")
             let shouldPass_2 = try Filter(properties: ["foo": 3.6, "bit": "swift", "green": "door"]).compile(parsed)
@@ -187,7 +236,11 @@ class FilterKitTests: XCTestCase {
             let shouldPass_3 = try Filter(properties: ["foo": 3.6, "bit": 0, "green": "door"]).compile(parsed)
             XCTAssert(shouldPass_3, "Foo should be in 1.0, 2.4 or 3.6")
             let shouldPass_4 = try Filter(properties: ["foo": true]).compile(parsed)
-            XCTAssert(shouldPass_4, "Foo should be in 1.0, 2.4 or 3.6, and as true is equal to 1 it's ok.")
+            #if !os(Linux)
+                XCTAssert(shouldPass_4, "Foo should be in 1.0, 2.4 or 3.6, and as true is equal to 1 it's ok.")
+            #else
+                XCTAssert(shouldPass_4 == false, "Foo should be in 1.0, 2.4 or 3.6, and as true it's not equal to 1 on Linux the assertion should fail.")
+            #endif
             let shouldFail_0 = try Filter(properties: ["foo": "fool", "bit": "code"]).compile(parsed)
             XCTAssert(shouldFail_0 == false, "Foo should be in 1.0, 2.4 or 3.6, but it's equal to fool")
             let shouldFail_1 = try Filter(properties: [:]).compile(parsed)
@@ -493,7 +546,11 @@ class FilterKitTests: XCTestCase {
             let shouldPass_1 = try Filter(properties: ["foo": 4, "bar": true]).compile(parsed)
             XCTAssert(shouldPass_1, "Foo should be equal to 4")
             let shouldPass_2 = try Filter(properties: ["foo": 4.0]).compile(parsed)
-            XCTAssert(shouldPass_2, "Foo should be equal to integer 4 even if expressed as double literal")
+            #if !os(Linux)
+                XCTAssert(shouldPass_2, "Foo should be equal to integer 4 even if expressed as double literal")
+            #else
+                XCTAssert(shouldPass_2 == false, "Foo should be equal to integer 4 as it's expressed as double")
+            #endif
             let shouldFail_0 = try Filter(properties: ["foo": 5, "swift": 1]).compile(parsed)
             XCTAssert(shouldFail_0 == false, "Foo should be equal to 4, but it's 5")
         } catch let error {
@@ -583,7 +640,11 @@ class FilterKitTests: XCTestCase {
         }
         do {
             let shouldPass_0 = try Filter(properties: ["foo": false]).compile(parsed)
-            XCTAssert(shouldPass_0, "Foo should not be equal to 1")
+            #if !os(Linux)
+                XCTAssert(shouldPass_0, "Foo should not be equal to 1")
+            #else
+                XCTAssert(shouldPass_0 == false, "Foo should not be equal to 1")
+            #endif
             let shouldPass_1 = try Filter(properties: ["foo": 2, "bar": true]).compile(parsed)
             XCTAssert(shouldPass_1, "Foo should not be equal to 1")
             let shouldFail_0 = try Filter(properties: ["foo": 1, "swift": 1]).compile(parsed)
@@ -866,13 +927,20 @@ class FilterKitTests: XCTestCase {
     }
     
     func parseFixture(_ named: String) -> [Any]? {
-        guard let jsonFileUrl = Bundle(for: FilterKitTests.self).url(forResource: named, withExtension: "json") else {
+        var _fileUrl : URL?
+        #if !os(Linux)
+            _fileUrl = Bundle(for: FilterKitTests.self).url(forResource: named, withExtension: "json")
+        #else
+            _fileUrl = URL(fileURLWithPath: "./Tests/FilterKitTests/Fixtures/\(named).json")
+            print(_fileUrl!.absoluteString)
+        #endif
+        guard let fileUrl = _fileUrl else {
             XCTFail("Cannot open fixture file named \(named)")
             return nil
         }
         
         do {
-            let jsonData = try Data.init(contentsOf: jsonFileUrl)
+            let jsonData = try Data.init(contentsOf: fileUrl)
             let deserializedObject = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
             guard let dictionary = deserializedObject as? [String: Any?] else {
                 XCTFail("Cannot parse json in fixture file named \(named)")

@@ -20,6 +20,7 @@
  */
 - (void)testObjectiveC {
     FILFilter *filter = [[FILFilter alloc] initWithProperties:@{@"foo": @"bar"}];
+    filter.logger = FILFilterLogLevelVerbose;
     NSError *error;
     FILFilterResult *result = [filter compileWithFilters:@[] error:&error];
     if(error != nil) {

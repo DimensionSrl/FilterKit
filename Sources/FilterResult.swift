@@ -8,6 +8,7 @@
 
 import Foundation
 
+#if !os(Linux)
 @objc(FILFilterResult)
 public class FilterResult : NSObject {
     @objc public let valid : Bool
@@ -16,3 +17,4 @@ public class FilterResult : NSObject {
         self.valid = valid
     }
 }
+#endif

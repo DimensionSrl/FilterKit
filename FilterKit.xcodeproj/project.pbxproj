@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9513B4541F5D9FB300B9B0C6 /* FilterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9513B44A1F5D9FB200B9B0C6 /* FilterKit.framework */; };
-		9513B4591F5D9FB300B9B0C6 /* FilterKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9513B4581F5D9FB300B9B0C6 /* FilterKitTests.swift */; };
 		9513B45B1F5D9FB300B9B0C6 /* FilterKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 9513B44D1F5D9FB200B9B0C6 /* FilterKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9513B4651F5D9FD800B9B0C6 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9513B4641F5D9FD800B9B0C6 /* Filter.swift */; };
 		9513B4671F5D9FE000B9B0C6 /* FilterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9513B4661F5D9FE000B9B0C6 /* FilterError.swift */; };
@@ -44,6 +43,9 @@
 		953D1BD71F5E89100010F5F2 /* FilterKitObjcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D1BD61F5E89100010F5F2 /* FilterKitObjcTests.m */; };
 		953D1BD91F5E8B3A0010F5F2 /* FilterResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953D1BD81F5E8B3A0010F5F2 /* FilterResult.swift */; };
 		953D1BDA1F5E8B3A0010F5F2 /* FilterResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953D1BD81F5E8B3A0010F5F2 /* FilterResult.swift */; };
+		95A118AD1F5EDCB100ADB1F0 /* FilterBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A118AC1F5EDCB100ADB1F0 /* FilterBridge.swift */; };
+		95A118AE1F5EDCB100ADB1F0 /* FilterBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A118AC1F5EDCB100ADB1F0 /* FilterBridge.swift */; };
+		95A118B01F5EE0F100ADB1F0 /* FilterKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A118AF1F5EE0F100ADB1F0 /* FilterKitTests.swift */; };
 		95AC15AC1F5E7A9400F1AEFE /* allEqualInt.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC15AB1F5E7A9200F1AEFE /* allEqualInt.json */; };
 		95CBB2D01F5E9AA4000925D3 /* FilterKit_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 95CBB2CE1F5E9A4A000925D3 /* FilterKit_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95D9E82C1F5E7C3800B5EEFB /* allEqualDouble.json in Resources */ = {isa = PBXBuildFile; fileRef = 95D9E82B1F5E7C3600B5EEFB /* allEqualDouble.json */; };
@@ -74,15 +76,14 @@
 
 /* Begin PBXFileReference section */
 		9513B44A1F5D9FB200B9B0C6 /* FilterKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FilterKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9513B44D1F5D9FB200B9B0C6 /* FilterKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterKit.h; sourceTree = "<group>"; };
-		9513B44E1F5D9FB200B9B0C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9513B44D1F5D9FB200B9B0C6 /* FilterKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FilterKit.h; path = Support/FilterKit.h; sourceTree = "<group>"; };
+		9513B44E1F5D9FB200B9B0C6 /* Info_iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info_iOS.plist; path = Support/Info_iOS.plist; sourceTree = "<group>"; };
 		9513B4531F5D9FB300B9B0C6 /* FilterKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FilterKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9513B4581F5D9FB300B9B0C6 /* FilterKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterKitTests.swift; sourceTree = "<group>"; };
-		9513B45A1F5D9FB300B9B0C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9513B4641F5D9FD800B9B0C6 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
-		9513B4661F5D9FE000B9B0C6 /* FilterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterError.swift; sourceTree = "<group>"; };
-		9513B4681F5DA01B00B9B0C6 /* FilterOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOperator.swift; sourceTree = "<group>"; };
-		9513B46A1F5DA06300B9B0C6 /* FilterLogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterLogLevel.swift; sourceTree = "<group>"; };
+		9513B45A1F5D9FB300B9B0C6 /* TestsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = TestsInfo.plist; path = Support/TestsInfo.plist; sourceTree = "<group>"; };
+		9513B4641F5D9FD800B9B0C6 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = ../Sources/Filter.swift; sourceTree = "<group>"; };
+		9513B4661F5D9FE000B9B0C6 /* FilterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterError.swift; path = ../Sources/FilterError.swift; sourceTree = "<group>"; };
+		9513B4681F5DA01B00B9B0C6 /* FilterOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterOperator.swift; path = ../Sources/FilterOperator.swift; sourceTree = "<group>"; };
+		9513B46A1F5DA06300B9B0C6 /* FilterLogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterLogLevel.swift; path = ../Sources/FilterLogLevel.swift; sourceTree = "<group>"; };
 		9513B4711F5DA4D400B9B0C6 /* FilterKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FilterKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9513B48E1F5DA6EB00B9B0C6 /* allEqualSingle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allEqualSingle.json; sourceTree = "<group>"; };
 		9513B4921F5DA95100B9B0C6 /* allEqualMultiple.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allEqualMultiple.json; sourceTree = "<group>"; };
@@ -107,12 +108,14 @@
 		953C90631F5DBE8900CB6426 /* allMajor.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allMajor.json; sourceTree = "<group>"; };
 		953C90651F5DBEA300CB6426 /* allMinorEqual.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allMinorEqual.json; sourceTree = "<group>"; };
 		953C90671F5DBEEC00CB6426 /* allMajorEqual.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allMajorEqual.json; sourceTree = "<group>"; };
-		953D1BD51F5E890F0010F5F2 /* FilterKitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FilterKitTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		953D1BD61F5E89100010F5F2 /* FilterKitObjcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterKitObjcTests.m; sourceTree = "<group>"; };
-		953D1BD81F5E8B3A0010F5F2 /* FilterResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterResult.swift; sourceTree = "<group>"; };
+		953D1BD51F5E890F0010F5F2 /* FilterKitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FilterKitTests-Bridging-Header.h"; path = "Support/FilterKitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		953D1BD61F5E89100010F5F2 /* FilterKitObjcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FilterKitObjcTests.m; path = ../Support/FilterKitObjcTests.m; sourceTree = "<group>"; };
+		953D1BD81F5E8B3A0010F5F2 /* FilterResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterResult.swift; path = ../Sources/FilterResult.swift; sourceTree = "<group>"; };
+		95A118AC1F5EDCB100ADB1F0 /* FilterBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterBridge.swift; path = ../Sources/FilterBridge.swift; sourceTree = "<group>"; };
+		95A118AF1F5EE0F100ADB1F0 /* FilterKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterKitTests.swift; path = ../Tests/FilterKitTests/FilterKitTests.swift; sourceTree = "<group>"; };
 		95AC15AB1F5E7A9200F1AEFE /* allEqualInt.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allEqualInt.json; sourceTree = "<group>"; };
-		95CBB2CE1F5E9A4A000925D3 /* FilterKit_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FilterKit_macOS.h; path = FilterKit/FilterKit_macOS.h; sourceTree = SOURCE_ROOT; };
-		95CBB2CF1F5E9A4A000925D3 /* Info_macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info_macOS.plist; path = FilterKit/Info_macOS.plist; sourceTree = SOURCE_ROOT; };
+		95CBB2CE1F5E9A4A000925D3 /* FilterKit_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FilterKit_macOS.h; path = Support/FilterKit_macOS.h; sourceTree = SOURCE_ROOT; };
+		95CBB2CF1F5E9A4A000925D3 /* Info_macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info_macOS.plist; path = Support/Info_macOS.plist; sourceTree = SOURCE_ROOT; };
 		95D9E82B1F5E7C3600B5EEFB /* allEqualDouble.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allEqualDouble.json; sourceTree = "<group>"; };
 		95D9E82D1F5E7C9900B5EEFB /* allNotEqualDouble.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allNotEqualDouble.json; sourceTree = "<group>"; };
 		95D9E82F1F5E7D5D00B5EEFB /* allEqualBool.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allEqualBool.json; sourceTree = "<group>"; };
@@ -158,8 +161,9 @@
 		9513B4401F5D9FB200B9B0C6 = {
 			isa = PBXGroup;
 			children = (
-				9513B44C1F5D9FB200B9B0C6 /* FilterKit */,
-				9513B4571F5D9FB300B9B0C6 /* FilterKitTests */,
+				9513B44C1F5D9FB200B9B0C6 /* Sources */,
+				9513B4571F5D9FB300B9B0C6 /* Tests */,
+				95A118B11F5EE7A800ADB1F0 /* Support */,
 				9513B44B1F5D9FB200B9B0C6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -174,32 +178,27 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9513B44C1F5D9FB200B9B0C6 /* FilterKit */ = {
+		9513B44C1F5D9FB200B9B0C6 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				9513B44D1F5D9FB200B9B0C6 /* FilterKit.h */,
-				95CBB2CE1F5E9A4A000925D3 /* FilterKit_macOS.h */,
-				95CBB2CF1F5E9A4A000925D3 /* Info_macOS.plist */,
-				9513B44E1F5D9FB200B9B0C6 /* Info.plist */,
 				9513B4641F5D9FD800B9B0C6 /* Filter.swift */,
+				95A118AC1F5EDCB100ADB1F0 /* FilterBridge.swift */,
 				9513B46A1F5DA06300B9B0C6 /* FilterLogLevel.swift */,
 				9513B4681F5DA01B00B9B0C6 /* FilterOperator.swift */,
 				9513B4661F5D9FE000B9B0C6 /* FilterError.swift */,
 				953D1BD81F5E8B3A0010F5F2 /* FilterResult.swift */,
 			);
-			path = FilterKit;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		9513B4571F5D9FB300B9B0C6 /* FilterKitTests */ = {
+		9513B4571F5D9FB300B9B0C6 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				9513B48C1F5DA5D100B9B0C6 /* Fixtures */,
-				9513B4581F5D9FB300B9B0C6 /* FilterKitTests.swift */,
+				95A118AF1F5EE0F100ADB1F0 /* FilterKitTests.swift */,
 				953D1BD61F5E89100010F5F2 /* FilterKitObjcTests.m */,
-				9513B45A1F5D9FB300B9B0C6 /* Info.plist */,
-				953D1BD51F5E890F0010F5F2 /* FilterKitTests-Bridging-Header.h */,
+				9513B48C1F5DA5D100B9B0C6 /* Fixtures */,
 			);
-			path = FilterKitTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		9513B48C1F5DA5D100B9B0C6 /* Fixtures */ = {
@@ -244,7 +243,21 @@
 				95D9E8451F5E854600B5EEFB /* throwUnknownFilter.json */,
 				95D9E8471F5E85B500B5EEFB /* throwWrongJsonFormat.json */,
 			);
-			path = Fixtures;
+			name = Fixtures;
+			path = ../Tests/FilterKitTests/Fixtures;
+			sourceTree = "<group>";
+		};
+		95A118B11F5EE7A800ADB1F0 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				953D1BD51F5E890F0010F5F2 /* FilterKitTests-Bridging-Header.h */,
+				9513B44D1F5D9FB200B9B0C6 /* FilterKit.h */,
+				95CBB2CE1F5E9A4A000925D3 /* FilterKit_macOS.h */,
+				95CBB2CF1F5E9A4A000925D3 /* Info_macOS.plist */,
+				9513B44E1F5D9FB200B9B0C6 /* Info_iOS.plist */,
+				9513B45A1F5D9FB300B9B0C6 /* TestsInfo.plist */,
+			);
+			name = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,6 +452,7 @@
 				9513B4671F5D9FE000B9B0C6 /* FilterError.swift in Sources */,
 				9513B4691F5DA01B00B9B0C6 /* FilterOperator.swift in Sources */,
 				9513B4651F5D9FD800B9B0C6 /* Filter.swift in Sources */,
+				95A118AD1F5EDCB100ADB1F0 /* FilterBridge.swift in Sources */,
 				9513B46B1F5DA06300B9B0C6 /* FilterLogLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,8 +461,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95A118B01F5EE0F100ADB1F0 /* FilterKitTests.swift in Sources */,
 				953D1BD71F5E89100010F5F2 /* FilterKitObjcTests.m in Sources */,
-				9513B4591F5D9FB300B9B0C6 /* FilterKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +474,7 @@
 				9513B48B1F5DA4E100B9B0C6 /* FilterError.swift in Sources */,
 				9513B4881F5DA4E100B9B0C6 /* Filter.swift in Sources */,
 				9513B48A1F5DA4E100B9B0C6 /* FilterOperator.swift in Sources */,
+				95A118AE1F5EDCB100ADB1F0 /* FilterBridge.swift in Sources */,
 				9513B4891F5DA4E100B9B0C6 /* FilterLogLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,7 +615,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = FilterKit/Info.plist;
+				INFOPLIST_FILE = Support/Info_iOS.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -625,7 +640,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = FilterKit/Info.plist;
+				INFOPLIST_FILE = Support/Info_iOS.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -644,13 +659,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24PN5XJ85Y;
-				INFOPLIST_FILE = FilterKitTests/Info.plist;
+				INFOPLIST_FILE = Support/TestsInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.dimension.FilterKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_OBJC_BRIDGING_HEADER = "FilterKitTests/FilterKitTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Support/FilterKitTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -665,13 +680,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24PN5XJ85Y;
-				INFOPLIST_FILE = FilterKitTests/Info.plist;
+				INFOPLIST_FILE = Support/TestsInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.dimension.FilterKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_OBJC_BRIDGING_HEADER = "FilterKitTests/FilterKitTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Support/FilterKitTests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
@@ -691,7 +706,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = FilterKit/Info_macOS.plist;
+				INFOPLIST_FILE = Support/Info_macOS.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -716,7 +731,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = FilterKit/Info_macOS.plist;
+				INFOPLIST_FILE = Support/Info_macOS.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
