@@ -56,7 +56,8 @@ class FilterKitTests: XCTestCase {
         ("testThrowWrongJsonFormat", testThrowWrongJsonFormat),
         ("testIntMinorString", testIntMinorString),
         ("testIntEqualString", testIntEqualString),
-        ("testStringInBool", testStringInBool)
+        ("testStringInBool", testStringInBool),
+        ("testDictionary", testDictionary)
         ]
     
     override func setUp() {
@@ -969,6 +970,15 @@ class FilterKitTests: XCTestCase {
             } else {
                 XCTFail("Thrown error should be of FilterError type")
             }
+        }
+    }
+    
+    func testDictionary() {
+        do {
+            let shouldPass_0 = try Filter(properties: ["foo":"bar"]).compile(["all", ["==", "foo", "bar"]])
+            XCTAssert(shouldPass_0, "Foo should be equal to bar")
+        } catch _ {
+            
         }
     }
     
