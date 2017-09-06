@@ -53,7 +53,10 @@ class FilterKitTests: XCTestCase {
         ("testThrowEqualNoValue", testThrowEqualNoValue),
         ("testThrowNoFiltersJson", testThrowNoFiltersJson),
         ("testThrowFirstElementNotAString", testThrowFirstElementNotAString),
-        ("testThrowWrongJsonFormat", testThrowWrongJsonFormat)
+        ("testThrowWrongJsonFormat", testThrowWrongJsonFormat),
+        ("testIntMinorString", testIntMinorString),
+        ("testIntEqualString", testIntEqualString),
+        ("testStringInBool", testStringInBool)
         ]
     
     override func setUp() {
@@ -726,6 +729,48 @@ class FilterKitTests: XCTestCase {
             XCTAssert(shouldFail_0 == false, "Foo should be different than bar, but none of the conditions should be bet")
             let shouldFail_1 = try Filter(properties: ["foo": "bar", "swift": 1]).compile(parsed)
             XCTAssert(shouldFail_1 == false, "Foo should be different than bar, but swift is 1, so one condition is met.")
+        } catch let error {
+            XCTFail(error.localizedDescription)
+        }
+    }
+    
+    func testIntMinorString() {
+        let name = "intMinorString"
+        guard let parsed = parseFixture(name) else {
+            XCTFail("Not a valid fixture")
+            return
+        }
+        do {
+            let shouldFail_0 = try Filter(properties: ["foo": 0]).compile(parsed)
+            XCTAssert(shouldFail_0 == false, "Foo should be minor than \"0\"")
+        } catch let error {
+            XCTFail(error.localizedDescription)
+        }
+    }
+    
+    func testIntEqualString() {
+        let name = "intEqualString"
+        guard let parsed = parseFixture(name) else {
+            XCTFail("Not a valid fixture")
+            return
+        }
+        do {
+            let shouldFail_0 = try Filter(properties: ["foo": 2]).compile(parsed)
+            XCTAssert(shouldFail_0 == false, "Foo should be euqual to \"2\"")
+        } catch let error {
+            XCTFail(error.localizedDescription)
+        }
+    }
+    
+    func testStringInBool() {
+        let name = "stringInBool"
+        guard let parsed = parseFixture(name) else {
+            XCTFail("Not a valid fixture")
+            return
+        }
+        do {
+            let shouldFail_0 = try Filter(properties: ["foo": "true"]).compile(parsed)
+            XCTAssert(shouldFail_0 == false, "Foo should be in to [\"true\", \"false\"]")
         } catch let error {
             XCTFail(error.localizedDescription)
         }

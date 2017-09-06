@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "95408E311F5FE546007965ED"
-               BuildableName = "FilterKit watchOS.framework"
+               BuildableName = "FilterKit.framework"
                BlueprintName = "FilterKit watchOS"
                ReferencedContainer = "container:FilterKit.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "95408E311F5FE546007965ED"
-            BuildableName = "FilterKit watchOS.framework"
+            BuildableName = "FilterKit.framework"
             BlueprintName = "FilterKit watchOS"
             ReferencedContainer = "container:FilterKit.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "95408E311F5FE546007965ED"
-            BuildableName = "FilterKit watchOS.framework"
+            BuildableName = "FilterKit.framework"
             BlueprintName = "FilterKit watchOS"
             ReferencedContainer = "container:FilterKit.xcodeproj">
          </BuildableReference>

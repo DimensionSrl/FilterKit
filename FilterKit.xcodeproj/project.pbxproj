@@ -138,6 +138,15 @@
 		95408E2C1F5FE4FB007965ED /* FilterKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 95408E2B1F5FE4FB007965ED /* FilterKit.podspec */; };
 		95408E3E1F5FE590007965ED /* Info_watchOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95408E3D1F5FE590007965ED /* Info_watchOS.plist */; };
 		95408E3F1F5FE5DC007965ED /* FilterKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 95408E3B1F5FE588007965ED /* FilterKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95408E431F600852007965ED /* intEqualString.json in Resources */ = {isa = PBXBuildFile; fileRef = 95408E401F600852007965ED /* intEqualString.json */; };
+		95408E441F600852007965ED /* intEqualString.json in Resources */ = {isa = PBXBuildFile; fileRef = 95408E401F600852007965ED /* intEqualString.json */; };
+		95408E451F600852007965ED /* intEqualString.json in Resources */ = {isa = PBXBuildFile; fileRef = 95408E401F600852007965ED /* intEqualString.json */; };
+		95408E461F600852007965ED /* intMinorString.json in Resources */ = {isa = PBXBuildFile; fileRef = 95408E411F600852007965ED /* intMinorString.json */; };
+		95408E471F600852007965ED /* intMinorString.json in Resources */ = {isa = PBXBuildFile; fileRef = 95408E411F600852007965ED /* intMinorString.json */; };
+		95408E481F600852007965ED /* intMinorString.json in Resources */ = {isa = PBXBuildFile; fileRef = 95408E411F600852007965ED /* intMinorString.json */; };
+		95408E491F600852007965ED /* stringInBool.json in Resources */ = {isa = PBXBuildFile; fileRef = 95408E421F600852007965ED /* stringInBool.json */; };
+		95408E4A1F600852007965ED /* stringInBool.json in Resources */ = {isa = PBXBuildFile; fileRef = 95408E421F600852007965ED /* stringInBool.json */; };
+		95408E4B1F600852007965ED /* stringInBool.json in Resources */ = {isa = PBXBuildFile; fileRef = 95408E421F600852007965ED /* stringInBool.json */; };
 		95A118AD1F5EDCB100ADB1F0 /* FilterBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A118AC1F5EDCB100ADB1F0 /* FilterBridge.swift */; };
 		95A118AE1F5EDCB100ADB1F0 /* FilterBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A118AC1F5EDCB100ADB1F0 /* FilterBridge.swift */; };
 		95A118B01F5EE0F100ADB1F0 /* FilterKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A118AF1F5EE0F100ADB1F0 /* FilterKitTests.swift */; };
@@ -231,6 +240,9 @@
 		95408E321F5FE546007965ED /* FilterKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FilterKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95408E3B1F5FE588007965ED /* FilterKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterKit.h; sourceTree = "<group>"; };
 		95408E3D1F5FE590007965ED /* Info_watchOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info_watchOS.plist; path = Support/Info_watchOS.plist; sourceTree = "<group>"; };
+		95408E401F600852007965ED /* intEqualString.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = intEqualString.json; sourceTree = "<group>"; };
+		95408E411F600852007965ED /* intMinorString.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = intMinorString.json; sourceTree = "<group>"; };
+		95408E421F600852007965ED /* stringInBool.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stringInBool.json; sourceTree = "<group>"; };
 		95A118AC1F5EDCB100ADB1F0 /* FilterBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterBridge.swift; path = ../Sources/FilterBridge.swift; sourceTree = "<group>"; };
 		95A118AF1F5EE0F100ADB1F0 /* FilterKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterKitTests.swift; path = ../Tests/FilterKitTests/FilterKitTests.swift; sourceTree = "<group>"; };
 		95AC15AB1F5E7A9200F1AEFE /* allEqualInt.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allEqualInt.json; sourceTree = "<group>"; };
@@ -395,6 +407,9 @@
 				95D9E8431F5E851500B5EEFB /* throwFirstElementNotAString.json */,
 				95D9E8451F5E854600B5EEFB /* throwUnknownFilter.json */,
 				95D9E8471F5E85B500B5EEFB /* throwWrongJsonFormat.json */,
+				95408E401F600852007965ED /* intEqualString.json */,
+				95408E411F600852007965ED /* intMinorString.json */,
+				95408E421F600852007965ED /* stringInBool.json */,
 			);
 			name = Fixtures;
 			path = ../Tests/FilterKitTests/Fixtures;
@@ -717,6 +732,7 @@
 				9513B4B71F5DBA1A00B9B0C6 /* throwEqualNoValue.json in Resources */,
 				953C90621F5DBD3C00CB6426 /* allMinor.json in Resources */,
 				95D9E82E1F5E7C9B00B5EEFB /* allNotEqualDouble.json in Resources */,
+				95408E491F600852007965ED /* stringInBool.json in Resources */,
 				95AC15AC1F5E7A9400F1AEFE /* allEqualInt.json in Resources */,
 				95D9E83B1F5E7F0500B5EEFB /* allMinorEqualInt.json in Resources */,
 				9513B4951F5DA9F000B9B0C6 /* allEqualDifferent.json in Resources */,
@@ -734,7 +750,9 @@
 				9513B4A71F5DB32800B9B0C6 /* noneDifferentMultiple.json in Resources */,
 				95D9E8301F5E7D6D00B5EEFB /* allEqualBool.json in Resources */,
 				9513B4B51F5DB9AB00B9B0C6 /* throwInNoValues.json in Resources */,
+				95408E431F600852007965ED /* intEqualString.json in Resources */,
 				9513B4B11F5DB94F00B9B0C6 /* throwInPropertyNotString.json in Resources */,
+				95408E461F600852007965ED /* intMinorString.json in Resources */,
 				95D9E82C1F5E7C3800B5EEFB /* allEqualDouble.json in Resources */,
 				9513B49D1F5DAC8B00B9B0C6 /* allEqualDoesntHave.json in Resources */,
 				95D9E83C1F5E7F0500B5EEFB /* allMajorEqualInt.json in Resources */,
@@ -769,6 +787,7 @@
 				95261FDE1F5FD9020005FCF6 /* allEqualIn.json in Resources */,
 				95261FEF1F5FD9020005FCF6 /* allMinor.json in Resources */,
 				95261FF51F5FD9020005FCF6 /* allNotEqualDouble.json in Resources */,
+				95408E4A1F600852007965ED /* stringInBool.json in Resources */,
 				95261FF31F5FD9020005FCF6 /* allEqualInt.json in Resources */,
 				95261FFB1F5FD9020005FCF6 /* allMinorEqualInt.json in Resources */,
 				95261FED1F5FD9020005FCF6 /* throwEqualNoValue.json in Resources */,
@@ -786,7 +805,9 @@
 				95261FEB1F5FD9020005FCF6 /* throwHasPropertyNotString.json in Resources */,
 				95261FF61F5FD9020005FCF6 /* allEqualBool.json in Resources */,
 				95261FEC1F5FD9020005FCF6 /* throwInNoValues.json in Resources */,
+				95408E441F600852007965ED /* intEqualString.json in Resources */,
 				95261FEA1F5FD9020005FCF6 /* throwInPropertyNotString.json in Resources */,
+				95408E471F600852007965ED /* intMinorString.json in Resources */,
 				95261FF41F5FD9020005FCF6 /* allEqualDouble.json in Resources */,
 				95261FE11F5FD9020005FCF6 /* allEqualDoesntHave.json in Resources */,
 				95261FFC1F5FD9020005FCF6 /* allMajorEqualInt.json in Resources */,
@@ -821,6 +842,7 @@
 				95408E081F5FE4E9007965ED /* allEqualIn.json in Resources */,
 				95408E191F5FE4E9007965ED /* allMinor.json in Resources */,
 				95408E1F1F5FE4E9007965ED /* allNotEqualDouble.json in Resources */,
+				95408E4B1F600852007965ED /* stringInBool.json in Resources */,
 				95408E1D1F5FE4E9007965ED /* allEqualInt.json in Resources */,
 				95408E251F5FE4E9007965ED /* allMinorEqualInt.json in Resources */,
 				95408E171F5FE4E9007965ED /* throwEqualNoValue.json in Resources */,
@@ -838,7 +860,9 @@
 				95408E151F5FE4E9007965ED /* throwHasPropertyNotString.json in Resources */,
 				95408E201F5FE4E9007965ED /* allEqualBool.json in Resources */,
 				95408E161F5FE4E9007965ED /* throwInNoValues.json in Resources */,
+				95408E451F600852007965ED /* intEqualString.json in Resources */,
 				95408E141F5FE4E9007965ED /* throwInPropertyNotString.json in Resources */,
+				95408E481F600852007965ED /* intMinorString.json in Resources */,
 				95408E1E1F5FE4E9007965ED /* allEqualDouble.json in Resources */,
 				95408E0B1F5FE4E9007965ED /* allEqualDoesntHave.json in Resources */,
 				95408E261F5FE4E9007965ED /* allMajorEqualInt.json in Resources */,
@@ -1430,6 +1454,7 @@
 				95408DF11F5FE379007965ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95408DF21F5FE379007965ED /* Build configuration list for PBXNativeTarget "FilterKitTests tvOS" */ = {
 			isa = XCConfigurationList;
@@ -1438,6 +1463,7 @@
 				95408DF41F5FE379007965ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95408E371F5FE546007965ED /* Build configuration list for PBXNativeTarget "FilterKit watchOS" */ = {
 			isa = XCConfigurationList;
@@ -1446,6 +1472,7 @@
 				95408E391F5FE546007965ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

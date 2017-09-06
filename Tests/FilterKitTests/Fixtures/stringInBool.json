@@ -1,0 +1,11 @@
+{
+    "filter": [
+        "all",
+        [
+            "in",
+            "foo",
+            true,
+            false
+        ]
+    ]
+}
