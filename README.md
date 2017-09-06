@@ -1,11 +1,11 @@
-# FilterKit Readme
+# FilterKit
 [![License MIT](https://img.shields.io/cocoapods/l/FilterKit.svg)](https://raw.githubusercontent.com/dimensionsrl/FilterKit/master/LICENSE) 
 [![Version](https://img.shields.io/cocoapods/v/FilterKit.svg)](https://cocoapods.org/?q=FilterKit) 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
 [![travis-ci](https://travis-ci.org/DimensionSrl/FilterKit.svg?branch=master)](https://travis-ci.org/DimensionSrl/FilterKit) 
 ![Swift 3](https://img.shields.io/badge/language-Swift%203-EB7943.svg) ![Swift 4](https://img.shields.io/badge/language-Swift%204-EB7943.svg) 
 [![codecov](https://codecov.io/gh/DimensionSrl/FilterKit/branch/master/graph/badge.svg)](https://codecov.io/gh/DimensionSrl/FilterKit) 
-![Platforms](https://img.shields.io/badge/platforms-iOS%20|%20macOS%20|%20tvOS%20|%20watchOS%20|%20Linux-EB7943.svg)
+![Platforms](https://img.shields.io/badge/platforms-iOS%20|%20macOS%20|%20tvOS%20|%20watchOS%20|%20Linux-8C8C8C.svg)
 
 FilterKit is a component written in Swift that let you validate or filter an object, based on a set of properties listed in a dictionary. It's inspired by the [filter](https://www.mapbox.com/mapbox-gl-js/style-spec/#types-filter) element in the [MapBox](https://www.google.it/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjovNC51ZDWAhXID8AKHUf9BmMQFggmMAA&url=https%3A%2F%2Fwww.mapbox.com%2F&usg=AFQjCNEIt9MHcYcAUBD0eKiH2wCb7aAkQA) [Style Specifications](https://www.mapbox.com/mapbox-gl-js/style-spec/). Compatibility is ensured with iOS, macOS, tvOS, watchOS and Linux. There's also a small bridge that enables full (for now) Objective-C interoperability.
 
@@ -16,28 +16,28 @@ A filter selects specific features from a dictionary of properties. A filter is 
 
 ### Existential Filters
 
-`["has", key]` *feature[key]* **exists**
-`["!has", key]` *feature[key]* **does not exist**
+* `["has", key]` *feature[key]* **exists**
+* `["!has", key]` *feature[key]* **does not exist**
 
 ### Comparison Filters
 
-`["==", key, value]` **equality**: *feature[key] = value*
-`["!=", key, value]` **inequality**: *feature[key] ≠ value*
-`[">", key, value]` **greater than**: *feature[key] > value*
-`[">=", key, value]` **greater than or equal**: *feature[key] ≥ value*
-`["<", key, value]` **less than**: *feature[key] < value*
-`["<=", key, value]` **less than or equal**: *feature[key] ≤ value*
+* `["==", key, value]` **equality**: *feature[key] = value*
+* `["!=", key, value]` **inequality**: *feature[key] ≠ value*
+* `[">", key, value]` **greater than**: *feature[key] > value*
+* `[">=", key, value]` **greater than or equal**: *feature[key] ≥ value*
+* `["<", key, value]` **less than**: *feature[key] < value*
+* `["<=", key, value]` **less than or equal**: *feature[key] ≤ value*
 
 ### Set Membership Filters
 
-`["in", key, v0, ..., vn]` **set inclusion**: *feature[key] ∈ {v0, ..., vn}*
-`["!in", key, v0, ..., vn]` **set exclusion**: *feature[key] ∉ {v0, ..., vn}*
+* `["in", key, v0, ..., vn]` **set inclusion**: *feature[key] ∈ {v0, ..., vn}*
+* `["!in", key, v0, ..., vn]` **set exclusion**: *feature[key] ∉ {v0, ..., vn}*
 
 ### Combining Filters
 
-`["all", f0, ..., fn]` **logical AND**: *f0 ∧ ... ∧ fn*
-`["any", f0, ..., fn]` **logical OR**: *f0 ∨ ... ∨ fn*
-`["none", f0, ..., fn]` **logical NOR**: *¬f0 ∧ ... ∧ ¬fn*
+* `["all", f0, ..., fn]` **logical AND**: *f0 ∧ ... ∧ fn*
+* `["any", f0, ..., fn]` **logical OR**: *f0 ∨ ... ∨ fn*
+* `["none", f0, ..., fn]` **logical NOR**: *¬f0 ∧ ... ∧ ¬fn*
 
 A `key` must be a string that identifies a feature property.
 
@@ -59,23 +59,24 @@ The combining filter `"all"` takes the three other filters that follow it and re
 
 ```json
 [
-"all",
-["==", "road", "street_limited"],
-[">=", "admin_level", 3],
-["!in", "paved", false, 2]
+    "all",
+    ["==", "road", "street_limited"],
+    [">=", "admin_level", 3],
+    ["!in", "paved", false, 2]
 ]
 ```
 
 ## Usage
-First of all import *FilterKit* module into your Swift class with `import FilterKit` or Objective-C one with `@import FilterKit;`.
+First of all import FilterKit module into your Swift class with `import FilterKit` or Objective-C one with `@import FilterKit;`.
 
-Then instantiate the `Filter` object with the desired properties expressed as a Dictionary. On that instance call the `compile` function providing the Array containing the filter.
+Then instantiate the `Filter` object with the desired properties expressed as a Dictionary. On that instance call the `compile()` function providing the Array containing the filter.
+
 ```swift
 do {
-let result = try Filter(properties: ["foo":"bar"]).compile(["all", ["==", "foo", "bar"]])
-print("Result: \(result)")
+    let result = try Filter(properties: ["foo":"bar"]).compile(["all", ["==", "foo", "bar"]])
+    print("Result: \(result)")
 } catch let error {
-print(error.localizedDescription)
+    print(error.localizedDescription)
 }
 ```
 
@@ -85,7 +86,7 @@ FILFilter *filter = [[FILFilter alloc] initWithProperties:@{@"foo": @"bar"}];
 NSError *error;
 FILFilterResult *result = [filter compileWithFilters:@[@"all", @[@"==", @"foo", @"bar"]] error:&error];
 if(error != nil) {
-NSLog(@"%@", error);
+    NSLog(@"%@", error);
 }
 NSLog(@"Result: %d", result.valid);
 ```
@@ -142,7 +143,7 @@ $ brew install carthage
 To integrate FilterKit into your Xcode project using [Carthage](https://github.com/Carthage/Carthage), specify it in your `Cartfile`:
 
 ```ogdl
-github "macteo/FilterKit"
+github "dimensionsrl/FilterKit"
 ```
 
 Run `carthage update --platform iOS` to build the framework and drag the built `FilterKit-PLATFORM.framework` into your Xcode project.
@@ -164,12 +165,12 @@ The complete version should appear like this:
 import PackageDescription
 
 let package = Package(
-name: "Your App Name",
-targets: [],
-dependencies: [
-.Package(url: "https://github.com/dimensiosrl/FilterKit.git", majorVersion: 1),
-.Package(url: "https://github.com/example/another-dependancy.git", majorVersion: 2),
-]
+    name: "Your App Name",
+    targets: [],
+    dependencies: [
+        .Package(url: "https://github.com/dimensiosrl/FilterKit.git", majorVersion: 1),
+        .Package(url: "https://github.com/example/another-dependancy.git", majorVersion: 2),
+        ]
 )
 ```
 
