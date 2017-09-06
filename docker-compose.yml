@@ -1,0 +1,5 @@
+app:
+  image: ibmcom/swift-ubuntu:latest
+  command: bash -c "cd /FilterKit; swift package clean; swift test"
+  volumes:
+    - ./:/FilterKit

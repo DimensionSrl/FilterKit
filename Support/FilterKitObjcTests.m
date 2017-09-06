@@ -3,10 +3,12 @@
 //  FilterKitTests
 //
 //  Created by Matteo Gavagnin on 05/09/2017.
-//  Copyright © 2017 DIMENSION. All rights reserved.
+//  Copyright © 2017 DIMENSION.
+//  See LICENSE file for more details.
 //
 
 #import <XCTest/XCTest.h>
+
 @import FilterKit;
 @interface FilterKitObjcTests : XCTestCase
 

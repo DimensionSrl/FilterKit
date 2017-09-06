@@ -3,10 +3,15 @@
 //  FilterKit
 //
 //  Created by Matteo Gavagnin on 04/09/2017.
-//  Copyright © 2017 DIMENSION. All rights reserved.
+//  Copyright © 2017 DIMENSION.
+//  See LICENSE file for more details.
 //
 
 import Foundation
+
+#if os(macOS)
+    import Cocoa
+#endif
 
 public class Filter {
     
@@ -30,11 +35,7 @@ public class Filter {
             logger.log(.error, message: "Unknown operation \(opString)")
             throw FilterError.unknownOperation
         }
-        guard op != .unknown else {
-            logger.log(.error, message: "Unknown operation \(opString)")
-            throw FilterError.unknownOperation
-        }
-        
+
         switch op {
         case .equal, .notEqual, .minor, .major, .minorOrEqual, .majorOrEqual:
             do {
@@ -51,8 +52,12 @@ public class Filter {
                 logger.log(.error, message: "Missing Filters: \(op)")
                 throw FilterError.missingFilters
             }
-            var followingFilters = filters
-            followingFilters.removeFirst()
+            #if swift(>=4.0)
+                let followingFilters = Array(filters[1...])
+            #else
+                let followingFilters = Array(filters[1..<filters.count])
+            #endif
+            
             do {
                 return try compileLogicalOp(filters: followingFilters, operation: op)
             } catch let error {
@@ -69,17 +74,16 @@ public class Filter {
                 logger.log(.error, message: "No values provided for property \(filters[1])")
                 throw FilterError.noValuesProvidedForProperty
             }
-            var followingFilters = filters
-            followingFilters.removeFirst()
-            followingFilters.removeFirst()
+            #if swift(>=4.0)
+                let followingFilters = Array(filters[2...])
+            #else
+                let followingFilters = Array(filters[2..<filters.count])
+            #endif
             do {
                 return try compileInOp(property: filters[1], values: followingFilters, operation: op)
             } catch let error {
                 throw error
             }
-        case .unknown:
-            logger.log(.error, message: "Unknown operation \(opString)")
-            throw FilterError.unknownOperation
         }
     }
     
@@ -87,7 +91,7 @@ public class Filter {
         return properties[property]
     }
     
-    fileprivate func compileComparisonOp(property: Any?, value: Any?, operation: FilterOperator) throws -> Bool {
+    fileprivate func compileComparisonOp(property: Any?, value: Any, operation: FilterOperator) throws -> Bool {
         guard let propertyString = property as? String else {
             logger.log(.error, message: "Property name is not a string")
             throw FilterError.propertyNameNotAString
@@ -96,20 +100,11 @@ public class Filter {
             logger.log(.info, message:"Cannot find property: \(propertyString)")
             return false
         }
-        guard let right = value else {
-            logger.log(.error, message: "Missing Comparison Value for: \(propertyString)")
-            throw FilterError.missingComparisonValue
-        }
         
-        return operation.compare(left: left, right: right)
+        return operation.compare(left: left, right: value)
     }
     
-    fileprivate func compileLogicalOp(filters: [Any]?, operation: FilterOperator) throws -> Bool {
-        guard let filters = filters else {
-            logger.log(.error, message: "Missing Filters: \(operation)")
-            throw FilterError.missingFilters
-        }
-        
+    fileprivate func compileLogicalOp(filters: [Any], operation: FilterOperator) throws -> Bool {
         var defaultResult = false
         switch operation {
         case .all:
@@ -127,27 +122,23 @@ public class Filter {
         }
         
         for nestedFilter in filters {
-            guard let _nestedFilter = nestedFilter as? [Any] else {
-                logger.log(.error, message: "Wrong format of filter: \(nestedFilter)")
-                throw FilterError.wrongFilterFormat
-            }
             do {
-                let result = try compile(_nestedFilter)
+                let result = try compile(nestedFilter as? [Any])
                 switch operation {
                 case .all:
                     if result == false {
-                        logger.log(.info, message: "All: \(_nestedFilter) with \(properties)")
+                        logger.log(.info, message: "All: \(nestedFilter) with \(properties)")
                         return false
                     }
                     break
                 case .any:
                     if result == true {
-                        logger.log(.info, message: "Any: \(_nestedFilter) with \(properties)")
+                        logger.log(.info, message: "Any: \(nestedFilter) with \(properties)")
                         return true
                     }
                 case .none:
                     if result == true {
-                        logger.log(.info, message: "None: \(_nestedFilter) with \(properties)")
+                        logger.log(.info, message: "None: \(nestedFilter) with \(properties)")
                         return false
                     }
                 default:
@@ -189,14 +180,10 @@ public class Filter {
         }
     }
     
-    fileprivate func compileInOp(property: Any?, values: [Any]?, operation: FilterOperator) throws -> Bool {
+    fileprivate func compileInOp(property: Any?, values: [Any], operation: FilterOperator) throws -> Bool {
         guard let propertyString = property as? String else {
             logger.log(.error, message: "Property name not a string")
             throw FilterError.propertyNameNotAString
-        }
-        guard let values = values else {
-            logger.log(.error, message: "No values provided for property \(propertyString)")
-            throw FilterError.noValuesProvidedForProperty
         }
         guard let left = compilePropertyReference(propertyString) else {
             logger.log(.info, message: "Cannot find property: \(propertyString)")
