@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                      = 'FilterKit'
-  s.version                   = '0.9.5'
+  s.version                   = '0.9.6'
   s.summary                   = 'Multiple filter DSL'
   s.description               = <<-DESC
   FilterKit is a component written in Swift that let you validate or filter an object, based on a set of properties listed in a dictionary.
@@ -25,8 +25,8 @@ Pod::Spec.new do |s|
     ws.source_files             = "Sources/**/*.{swift}"
   end
 
-  s.test_spec 'Tests' do |test_spec|
-    test_spec.source_files    = 'Tests/FilterKitTests/**/*.{h,m,swift}'
-    test_spec.resources       = 'Tests/FilterKitTests/Fixtures/*.json'
+  s.test_spec 'Tests' do |ts|
+    ts.source_files    = 'Tests/FilterKitTests/**/*.{h,m,swift}'
+    ts.resources       = 'Tests/FilterKitTests/Fixtures/*.json'
   end
 end
