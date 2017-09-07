@@ -11,7 +11,7 @@ import Foundation
 
 #if !os(Linux)
 @objc(FILFilter)
-class FilterBridge : NSObject {
+public class FilterBridge : NSObject {
     
     let filter : Filter!
     
