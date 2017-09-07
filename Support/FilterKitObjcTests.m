@@ -25,11 +25,7 @@
     filter.logger = FILFilterLogLevelVerbose;
     NSError *error;
     FILFilterResult *result = [filter compileWithFilters:@[] error:&error];
-    if(error != nil) {
-        NSLog(@"%@", error);
-        XCTAssert(error.code == 1);
-    }
-    XCTAssert(result.valid == false);
+    XCTAssert(result.valid == true);
 }
 
 - (void)testWithFilters {

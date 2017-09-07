@@ -27,6 +27,9 @@ public class Filter {
         guard let filters = filters else {
             return true
         }
+        guard filters.count > 0 else {
+            return true
+        }
         guard let opString = filters.first as? String else {
             logger.log(.error, message: "First element is not a string")
             throw FilterError.firstElementNotAString

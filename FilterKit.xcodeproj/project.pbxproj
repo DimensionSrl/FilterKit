@@ -147,6 +147,9 @@
 		95408E491F600852007965ED /* stringInBool.json in Resources */ = {isa = PBXBuildFile; fileRef = 95408E421F600852007965ED /* stringInBool.json */; };
 		95408E4A1F600852007965ED /* stringInBool.json in Resources */ = {isa = PBXBuildFile; fileRef = 95408E421F600852007965ED /* stringInBool.json */; };
 		95408E4B1F600852007965ED /* stringInBool.json in Resources */ = {isa = PBXBuildFile; fileRef = 95408E421F600852007965ED /* stringInBool.json */; };
+		9599A09B1F61537C007D7C79 /* emptyJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 9599A09A1F61537C007D7C79 /* emptyJson.json */; };
+		9599A09C1F61537C007D7C79 /* emptyJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 9599A09A1F61537C007D7C79 /* emptyJson.json */; };
+		9599A09D1F61537C007D7C79 /* emptyJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 9599A09A1F61537C007D7C79 /* emptyJson.json */; };
 		95A118AD1F5EDCB100ADB1F0 /* FilterBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A118AC1F5EDCB100ADB1F0 /* FilterBridge.swift */; };
 		95A118AE1F5EDCB100ADB1F0 /* FilterBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A118AC1F5EDCB100ADB1F0 /* FilterBridge.swift */; };
 		95A118B01F5EE0F100ADB1F0 /* FilterKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A118AF1F5EE0F100ADB1F0 /* FilterKitTests.swift */; };
@@ -243,6 +246,7 @@
 		95408E401F600852007965ED /* intEqualString.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = intEqualString.json; sourceTree = "<group>"; };
 		95408E411F600852007965ED /* intMinorString.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = intMinorString.json; sourceTree = "<group>"; };
 		95408E421F600852007965ED /* stringInBool.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stringInBool.json; sourceTree = "<group>"; };
+		9599A09A1F61537C007D7C79 /* emptyJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyJson.json; sourceTree = "<group>"; };
 		95A118AC1F5EDCB100ADB1F0 /* FilterBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterBridge.swift; path = ../Sources/FilterBridge.swift; sourceTree = "<group>"; };
 		95A118AF1F5EE0F100ADB1F0 /* FilterKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterKitTests.swift; path = ../Tests/FilterKitTests/FilterKitTests.swift; sourceTree = "<group>"; };
 		95AC15AB1F5E7A9200F1AEFE /* allEqualInt.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allEqualInt.json; sourceTree = "<group>"; };
@@ -410,6 +414,7 @@
 				95408E401F600852007965ED /* intEqualString.json */,
 				95408E411F600852007965ED /* intMinorString.json */,
 				95408E421F600852007965ED /* stringInBool.json */,
+				9599A09A1F61537C007D7C79 /* emptyJson.json */,
 			);
 			name = Fixtures;
 			path = ../Tests/FilterKitTests/Fixtures;
@@ -726,6 +731,7 @@
 				9513B4AF1F5DB8E600B9B0C6 /* throwPropertyNotString.json in Resources */,
 				95D9E8441F5E851700B5EEFB /* throwFirstElementNotAString.json in Resources */,
 				9513B4B31F5DB96D00B9B0C6 /* throwHasPropertyNotString.json in Resources */,
+				9599A09B1F61537C007D7C79 /* emptyJson.json in Resources */,
 				9513B4AB1F5DB79500B9B0C6 /* throwUnknownOperation.json in Resources */,
 				953C90661F5DBEA500CB6426 /* allMinorEqual.json in Resources */,
 				9513B4A31F5DAFA500B9B0C6 /* allEqualSingleDouble.json in Resources */,
@@ -781,6 +787,7 @@
 				95261FE41F5FD9020005FCF6 /* allEqualSingleDouble.json in Resources */,
 				95261FEE1F5FD9020005FCF6 /* throwNoFilters.json in Resources */,
 				95261FDD1F5FD9020005FCF6 /* allEqualDifferent.json in Resources */,
+				9599A09C1F61537C007D7C79 /* emptyJson.json in Resources */,
 				95261FF11F5FD9020005FCF6 /* allMinorEqual.json in Resources */,
 				95261FFE1F5FD9020005FCF6 /* throwFirstElementNotAString.json in Resources */,
 				95261FDB1F5FD9020005FCF6 /* allEqualSingle.json in Resources */,
@@ -836,6 +843,7 @@
 				95408E0E1F5FE4E9007965ED /* allEqualSingleDouble.json in Resources */,
 				95408E181F5FE4E9007965ED /* throwNoFilters.json in Resources */,
 				95408E071F5FE4E9007965ED /* allEqualDifferent.json in Resources */,
+				9599A09D1F61537C007D7C79 /* emptyJson.json in Resources */,
 				95408E1B1F5FE4E9007965ED /* allMinorEqual.json in Resources */,
 				95408E281F5FE4E9007965ED /* throwFirstElementNotAString.json in Resources */,
 				95408E051F5FE4E9007965ED /* allEqualSingle.json in Resources */,

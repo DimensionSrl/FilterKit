@@ -57,7 +57,8 @@ class FilterKitTests: XCTestCase {
         ("testIntMinorString", testIntMinorString),
         ("testIntEqualString", testIntEqualString),
         ("testStringInBool", testStringInBool),
-        ("testDictionary", testDictionary)
+        ("testDictionary", testDictionary),
+        ("testEmptyJson", testEmptyJson)
         ]
     
     override func setUp() {
@@ -772,6 +773,20 @@ class FilterKitTests: XCTestCase {
         do {
             let shouldFail_0 = try Filter(properties: ["foo": "true"]).compile(parsed)
             XCTAssert(shouldFail_0 == false, "Foo should be in to [\"true\", \"false\"]")
+        } catch let error {
+            XCTFail(error.localizedDescription)
+        }
+    }
+    
+    func testEmptyJson() {
+        let name = "emptyJson"
+        guard let parsed = parseFixture(name) else {
+            XCTFail("Not a valid fixture")
+            return
+        }
+        do {
+            let shouldPass_0 = try Filter(properties: ["foo": "true"]).compile(parsed)
+            XCTAssert(shouldPass_0, "No filters privided, should always pass")
         } catch let error {
             XCTFail(error.localizedDescription)
         }
