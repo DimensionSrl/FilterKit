@@ -1,8 +1,8 @@
 {
   "name": "FilterKit",
-  "version": "0.9.1",
+  "version": "0.9.5",
   "summary": "Multiple filter DSL",
-  "description": "Combine multiple filters to achive custom results.",
+  "description": "FilterKit is a component written in Swift that let you validate or filter an object, based on a set of properties listed in a dictionary.",
   "homepage": "https://github.com/dimensionsrl/FilterKit",
   "license": {
     "type": "MIT",
@@ -13,14 +13,33 @@
     "Matteo Gavagnin": "m@macteo.it"
   },
   "social_media_url": "https://twitter.com/macteo",
-  "platforms": {
-    "ios": "8.0",
-    "osx": "10.9"
-  },
+  "default_subspecs": "Watch",
   "source": {
     "git": "https://github.com/dimensionsrl/FilterKit.git",
-    "tag": "v0.9.1"
+    "tag": "v0.9.5"
   },
   "source_files": "Sources/**/*.{swift}",
-  "requires_arc": true
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9",
+    "tvos": "9.0"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/FilterKitTests/**/*.{h,m,swift}",
+      "resources": "Tests/FilterKitTests/Fixtures/*.json"
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Watch",
+      "platforms": {
+        "watchos": "2.0"
+      },
+      "source_files": "Sources/**/*.{swift}"
+    }
+  ]
 }

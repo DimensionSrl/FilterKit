@@ -1,5 +1,7 @@
 PODS:
-  - FilterKit (0.9.1)
+  - FilterKit (0.9.5):
+    - FilterKit/Watch (= 0.9.5)
+  - FilterKit/Watch (0.9.5)
 
 DEPENDENCIES:
   - FilterKit (from `..`)
@@ -9,7 +11,7 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  FilterKit: 250522323239898f0a21c6a390fb47cd8a591c17
+  FilterKit: 21f3d6f5a99f1937dd65547776b236a0a8e75b50
 
 PODFILE CHECKSUM: baec954e05b2ba68f7138234fe234e08f4af51cd
 
