@@ -25,14 +25,6 @@
     "osx": "10.9",
     "tvos": "9.0"
   },
-  "testspecs": [
-    {
-      "name": "Tests",
-      "test_type": "unit",
-      "source_files": "Tests/FilterKitTests/**/*.{h,m,swift}",
-      "resources": "Tests/FilterKitTests/Fixtures/*.json"
-    }
-  ],
   "subspecs": [
     {
       "name": "Watch",
